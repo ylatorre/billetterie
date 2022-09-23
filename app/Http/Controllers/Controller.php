@@ -11,11 +11,11 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function test()
+    public function axios()
     {
         $test = "test reussi";
 
 
-        return json_encode(['test' => 'test']);
+        return json_encode(['test' => $test]);
     }
 }
