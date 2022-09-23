@@ -10,4 +10,12 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public function test()
+    {
+        $test = "test reussi";
+
+
+        return json_encode(['test' => 'test']);
+    }
 }
