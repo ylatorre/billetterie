@@ -1,5 +1,5 @@
 import axios from 'axios';
 
-axios.get('/test').then(response => {
+axios.get('/axios').then(response => {
     console.log(response.data);
 });

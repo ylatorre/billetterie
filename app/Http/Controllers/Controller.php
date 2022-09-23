@@ -15,7 +15,8 @@ class Controller extends BaseController
     {
         $test = "test reussi";
 
+        $test2 = view("test",compact("test"))
 
-        return json_encode(['test' => $test]);
+        return json_encode($test2);
     }
 }
