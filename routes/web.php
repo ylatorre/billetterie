@@ -17,7 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//test axios
 Route::get('/axios',[Controller::class, 'axios']);
+Route::get('/test',[Controller::class, 'test']);
 
 
 Route::get('/dashboard', function () {
