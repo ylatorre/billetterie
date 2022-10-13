@@ -25,6 +25,7 @@ Route::get('/test',[Controller::class, 'test']);
 Route::get('/test/update',[Controller::class, 'update']);
 
 
+
 //Route::get('/dashboard', function () {
 //    return view('dashboard');
 //})->name('dashboard');
