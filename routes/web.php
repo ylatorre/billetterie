@@ -13,18 +13,25 @@ use App\Http\Controllers\Controller;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+
+Route::get("/",[Controller::class, "accueil"])->name("accueil");
+Route::get("contact",[Controller::class, "contact"])->name("contact");
 
 //test axios
 Route::get('/axios',[Controller::class, 'axios']);
 Route::get('/test',[Controller::class, 'test']);
+Route::get('/test/update',[Controller::class, 'update']);
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+//Route::get('/dashboard', function () {
+//    return view('dashboard');
+//})->name('dashboard');
+
+//Route::get('/dashboard', function () {
+//    return view('dashboard');
+//})->middleware(['auth'])->name('dashboard');
 
 
 

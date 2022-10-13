@@ -14,14 +14,29 @@ class Controller extends BaseController
 
     public function axios()
     {
-        $test     = "test reussi";
-        $test2 = view("dashboard");
+        $test  = "test reussi";
+        $test2 = view("accueil");
 //        return new JsonResponse($test2);
         return view("components.test");
+    }
+
+    public function update()
+    {
+
     }
 
     public function test()
     {
         return view("test");
+    }
+
+    public function accueil()
+    {
+        return view("accueil");
+    }
+
+    public function contact()
+    {
+        return view("contact");
     }
 }
