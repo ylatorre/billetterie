@@ -32,6 +32,12 @@ class Controller extends BaseController
 
     public function accueil()
     {
+
+        return view("accueil");
+    }
+    public function acteur()
+    {
+
         return view("accueil");
     }
 
