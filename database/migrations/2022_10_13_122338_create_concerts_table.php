@@ -16,13 +16,15 @@ return new class extends Migration
         Schema::create('concerts', function (Blueprint $table) {
             $table->id();
             $table->string('Name');
-            $table->string('Date');
+            $table->string('duree');
             $table->string('Price');
             $table->string('Description');
             $table->string('Image');
-            $table->string('IdArtiste');
+            $table->string('type');
+            $table->integer('IdArtiste');
             $table->integer('NumberPlacesReserved');
-
+            $table->integer('NumberPlacesAvailable');
+            $table->date('Date');
         });
     }
 

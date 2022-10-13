@@ -6,7 +6,9 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\DB;
 
 class Controller extends BaseController
 {
@@ -32,8 +34,9 @@ class Controller extends BaseController
 
     public function accueil()
     {
+        $concerts = DB::table('concerts')->get();
 
-        return view("accueil");
+        return view("accueil",compact('concerts'));
     }
     public function acteur()
     {
@@ -44,5 +47,17 @@ class Controller extends BaseController
     public function contact()
     {
         return view("contact");
+    }
+
+    public function reservation($data)
+    {
+//        dd($data);
+        $concert = DB::table('concerts')->where('id', $data)->get();
+        return view("reservation",compact('concert'));
+    }
+    public function GalerieSup()
+    {
+
+        return view("GalerieSup");
     }
 }
