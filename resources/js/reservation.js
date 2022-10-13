@@ -5,7 +5,7 @@ const GalerieCenter      = document.getElementById('GalCen');
 const GalerieInferieur   = document.getElementById('GalInf');
 const Cour               = document.getElementById('Cour');
 const ReservationBouton  = document.getElementById('ReservationBouton');
-const GalerieSupAfficher = document.getElementById('GalerieSupAfficher');
+let GalerieSupAfficher = document.getElementById('GalerieSupAfficher');
 
 GalerieSup.addEventListener('click', function () {
     Reservation(1)
@@ -28,8 +28,10 @@ Cour.addEventListener('click', function () {
 
 
 function Reservation(test) {
+    GalerieSupAfficher = document.getElementById('GalerieSupAfficher');
+
     // ReservationBouton.insertAdjacentHTML('afterend', '<div class="alert alert-success" role="alert">Votre réservation a bien été prise en compte</div>');
-    if (!GalerieSupAfficher && test == 1) {
+    if (GalerieSupAfficher === null && test === 1) {
         axios.get('/GalerieSup').then(response => {
             ReservationBouton.insertAdjacentHTML('beforeend', response.data);
             console.log(response);
