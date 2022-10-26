@@ -10,11 +10,16 @@
         @for($i = 0; $i < 5; $i++,$numeroDePlace++)
             <div class="flex flex-row">
                 @for($i2 = 0; $i2 < 40; $i2++,$numeroDePlace++)
-                    @if($placesTotal == $numeroDePlace)
+                    @foreach($placesTotal as $places)
+                        @if($places->NumberPlace == $numeroDePlace)
 
 
-                    <button href="" data-NumeroPlace="{{$numeroDePlace}}" class="blockPlace p-1 m-1"></button>
-                    @endif
+                        <button href="" data-NumeroPlace="{{$numeroDePlace}}" class="blockPlace p-1 m-1 placeReserve"></button>
+                        @else
+                            <button href="" data-NumeroPlace="{{$numeroDePlace}}" class="blockPlace p-1 m-1"></button>
+
+                        @endif
+                    @endforeach
                     @if($i2% 10 == 0 && $i2 != 0)
 
                         <span style="padding: 4px;"></span>
