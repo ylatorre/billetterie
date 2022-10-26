@@ -2,7 +2,6 @@
     <div class="absolute blockPlaceHaut">
         @php
             $numeroDePlace = 0;
-
 //dd($placesTotal)
 //        @endphp
 
@@ -10,15 +9,23 @@
         @for($i = 0; $i < 5; $i++,$numeroDePlace++)
             <div class="flex flex-row">
                 @for($i2 = 0; $i2 < 40; $i2++,$numeroDePlace++)
-                    @foreach($placesTotal as $places)
-                        @if($places->NumberPlace == $numeroDePlace)
 
+                    @foreach($placesTotal as $place)
+                        {{--                        <button href="" data-NumeroPlace="{{$numeroDePlace}}" class="blockPlace p-1 m-1"></button>--}}
 
-                        <button href="" data-NumeroPlace="{{$numeroDePlace}}" class="blockPlace p-1 m-1 placeReserve"></button>
-                        @else
-                            <button href="" data-NumeroPlace="{{$numeroDePlace}}" class="blockPlace p-1 m-1"></button>
-
+                        @if($place->NumberPlace === $numeroDePlace)
+                            <button href="" data-NumeroPlace="{{$numeroDePlace}}"
+                                    class="blockPlace p-1 m-1 placeReserve"></button>
+                            <span>{{$numeroDePlace}}</span>
+{{--                            @php($numeroDePlace++);--}}
+{{--                            @php($i2++);--}}
+                            @break;
                         @endif
+                        <button href="" data-NumeroPlace="{{$numeroDePlace}}" class="blockPlace p-1 m-1"></button>
+                        <span>{{$}}</span>
+
+                        @php($numeroDePlace++)
+                        @php($i2++)
                     @endforeach
                     @if($i2% 10 == 0 && $i2 != 0)
 
@@ -68,7 +75,7 @@
 
 
     let blockPlace = document.querySelectorAll('.blockPlace');
-    let array = @json($placesTotal);
+    let array      = @json($placesTotal);
     console.log("tresudhj")
     blockPlace.forEach(function (element) {
         let attribute = element.getAttribute('data-NumeroPlace')
@@ -76,7 +83,7 @@
             let valeur = array[i];
             if (attribute == valeur.NumberPlace) {
                 element.classList.add('placeReserve')
-                console.log(attribute,valeur.NumberPlace)
+                console.log(attribute, valeur.NumberPlace)
 
             }
         }
