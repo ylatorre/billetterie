@@ -22,6 +22,9 @@ Route::get("artiste",[Controller::class, "artiste"])->name("artiste");
 
 Route::get("reservation/{data}",[Controller::class, "reservation"])->name("reservation");
 Route::get("GalerieSup/{data}",[Controller::class, "GalerieSup"])->name("GalerieSup");
+Route::get("GalerieCentral/{data}",[Controller::class, "GalerieCentral"])->name("GalerieCentral");
+Route::get("GalerieInferieur/{data}",[Controller::class, "GalerieInferieur"])->name("GalerieInferieur");
+Route::get("Cour/{data}",[Controller::class, "cour"])->name("cour");
 
 //test axios
 Route::get('/axios',[Controller::class, 'axios']);

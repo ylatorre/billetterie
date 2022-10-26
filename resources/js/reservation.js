@@ -34,21 +34,14 @@ function getCurrentURL () {
 function Reservation(test) {
     GalerieSupAfficher = document.getElementById('GalerieSupAfficher');
     let infoConcert = getCurrentURL().split('/').pop();
-    // ReservationBouton.insertAdjacentHTML('afterend', '<div class="alert alert-success" role="alert">Votre réservation a bien été prise en compte</div>');
     if (GalerieSupAfficher === null && test === 1) {
         axios.get('/GalerieSup/'+infoConcert
-
     ).then(response => {
              ReservationBouton.innerHTML =  response.data;
             console.log(response.data);
-
-
         }).catch(err => {
             console.log(err)
-
         }).then(() => {
-        //     total = document.querySelectorAll('.blockPlace').length;
-        //     console.log(total);
             let blockPlace = document.querySelectorAll('.blockPlace');
             blockPlace.forEach(async function (element) {
                 element.addEventListener('click', function () {
@@ -56,26 +49,60 @@ function Reservation(test) {
                 })
                 console.log("click");
             });
-
-
-
-
         })
-
-        console.log("Reservation", test);
-
-
-        // for (let i = 0; i < total; i++) {
-        //     blockPlace[i].addEventListener('click', function () {
-        //         blockPlace[i].classList.toggle('blockPlaceActive');
-        //         console.log(blockPlace[i].id);
-        //     })
-        //
-        // }
     }
     if (test === 2) {
-        ReservationBouton.innerHTML = "Reservation 2";
+        axios.get('/GalerieCentral/'+infoConcert
+        ).then(response => {
+            ReservationBouton.innerHTML =  response.data;
+            console.log(response.data);
+        }).catch(err => {
+            console.log(err)
+        }).then(() => {
+            let blockPlace = document.querySelectorAll('.blockPlace');
+            blockPlace.forEach(async function (element) {
+                element.addEventListener('click', function () {
+                    element.classList.toggle('blockPlaceActive');
+                })
+                console.log("click");
+            });
+        })
     }
+    if (test === 3) {
+        axios.get('/GalerieInferieur/'+infoConcert
+        ).then(response => {
+            ReservationBouton.innerHTML =  response.data;
+            console.log(response.data);
+        }).catch(err => {
+            console.log(err)
+        }).then(() => {
+            let blockPlace = document.querySelectorAll('.blockPlace');
+            blockPlace.forEach(async function (element) {
+                element.addEventListener('click', function () {
+                    element.classList.toggle('blockPlaceActive');
+                })
+                console.log("click");
+            });
+        })
+    }
+    if (test === 4) {
+        axios.get('/Cour/'+infoConcert
+        ).then(response => {
+            ReservationBouton.innerHTML =  response.data;
+            console.log(response.data);
+        }).catch(err => {
+            console.log(err)
+        }).then(() => {
+            let blockPlace = document.querySelectorAll('.blockPlace');
+            blockPlace.forEach(async function (element) {
+                element.addEventListener('click', function () {
+                    element.classList.toggle('blockPlaceActive');
+                })
+                console.log("click");
+            });
+        })
+    }
+
     // console.log("Reservation", test);
 }
 

@@ -1,7 +1,7 @@
 <div class="placeHaut">
     <div class="absolute blockPlaceHaut">
         @php
-            $numeroDePlace = 0;
+            $numeroDePlace = 684;
             $etat = 0;
         @endphp
 
@@ -20,14 +20,14 @@
                         @endif
                     @endforeach
                     @if($etat === 0)
-                    <button data-NumeroPlace="{{$numeroDePlace}}" class="blockPlace p-1 m-1"></button>
+                        <button data-NumeroPlace="{{$numeroDePlace}}" class="blockPlace p-1 m-1"></button>
                     @endif
                     @if($i2% 10 == 0 && $i2 != 0)
 
                         <span style="padding: 4px;"></span>
                     @endif
                     @php($etat = 0)
-                    @endfor
+                @endfor
             </div>
 
         @endfor
@@ -88,6 +88,15 @@
         @endfor
     </div>
 </div>
+
+<style>
+    .blockPlaceActive{
+        background-color: green;
+    }
+
+    .placeReserve{
+        background-color: red;
+    }</style>
 
 
 

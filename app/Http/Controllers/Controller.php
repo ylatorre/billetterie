@@ -66,6 +66,24 @@ class Controller extends BaseController
 //        dd($placesTotal);
         return view("GalerieSup",compact('placesTotal'));
     }
+    public function GalerieCentral($data)
+    {
+        $placesTotal = DB::table('reservations')->join("concerts", "idConcert","=","concerts.id")->select("NumberPlace")->where('reservations.idConcert', $data)->get()->toArray();
+
+
+//        dd($placesTotal);
+        return view("GalCentral",compact('placesTotal'));
+    }
+    public function GalerieInferieur($data)
+    {
+        $placesTotal = DB::table('reservations')->join("concerts", "idConcert", "=", "concerts.id")->select("NumberPlace")->where('reservations.idConcert', $data)->get()->toArray();
+        return view("GalerieInferieur", compact('placesTotal'));
+    }
+    public function cour($data)
+    {
+        $placesTotal = DB::table('reservations')->join("concerts", "idConcert", "=", "concerts.id")->select("NumberPlace")->where('reservations.idConcert', $data)->get()->toArray();
+        return view("cour", compact('placesTotal'));
+    }
     public function artiste()
     {
         $artistes = DB::table('artistes')->get();
