@@ -53,7 +53,7 @@ class Controller extends BaseController
     public function reservation($data)
     {
 //        dd($data);
-        $concert = DB::table('concerts')->where('id', $data)->get();
+        $concert = DB::table('concerts')->where('id', $data)->get()->toArray();
 
         return view("reservation",compact('concert'));
     }
