@@ -21,7 +21,7 @@
                                 <div>
                                     <span class="pl-2 pr-2 text-xs text-bold" style="background-color: #be1836;color:white;">Nouveau</span>
                                     <p class="font-bold	text-xl">
-                                        <a href=""> {{$concert->Description}} </a></p>
+                                        <a href="/reservation/{{$concert->id}}"> {{$concert->Description}} </a></p>
                                     <div class="" style="color:rgba(9,10,11,0.5)">
                                         <span>{{$concert->type}}</span>
                                         <span>({{$concert->duree}})</span>
@@ -31,6 +31,8 @@
                             </div>
                             <hr class="mb-2">
                             @endforeach
+
+
                         </div>
                 </div>
             </div>
@@ -38,6 +40,4 @@
 
 
     </div>
-
-
 </x-app-layout>

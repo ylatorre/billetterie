@@ -18,6 +18,8 @@ use App\Http\Controllers\Controller;
 
 Route::get("/",[Controller::class, "accueil"])->name("accueil");
 Route::get("contact",[Controller::class, "contact"])->name("contact");
+Route::get("artiste",[Controller::class, "artiste"])->name("artiste");
+
 Route::get("reservation/{data}",[Controller::class, "reservation"])->name("reservation");
 Route::get("GalerieSup",[Controller::class, "GalerieSup"])->name("GalerieSup");
 
@@ -25,6 +27,7 @@ Route::get("GalerieSup",[Controller::class, "GalerieSup"])->name("GalerieSup");
 Route::get('/axios',[Controller::class, 'axios']);
 Route::get('/test',[Controller::class, 'test']);
 Route::get('/test/update',[Controller::class, 'update']);
+
 
 
 

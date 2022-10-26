@@ -9,7 +9,6 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
-
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -19,8 +18,10 @@ class Controller extends BaseController
         $test  = "test reussi";
         $test2 = view("accueil");
 //        return new JsonResponse($test2);
+
         return view("components.test");
     }
+
 
     public function update()
     {
@@ -53,11 +54,17 @@ class Controller extends BaseController
     {
 //        dd($data);
         $concert = DB::table('concerts')->where('id', $data)->get();
+
         return view("reservation",compact('concert'));
     }
     public function GalerieSup()
     {
 
         return view("GalerieSup");
+    }
+    public function artiste()
+    {
+        $artistes = DB::table('artistes')->get();
+        return view("artiste",compact('artistes'));
     }
 }

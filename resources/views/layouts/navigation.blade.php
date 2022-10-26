@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('contact')" :active="request()->routeIs('contact')">
                         {{ __('contact') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('artiste')" :active="request()->routeIs('artiste')">
+                        {{ __('artiste') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -87,6 +90,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('contact')" :active="request()->routeIs('contact')">
                 {{ __('Contact') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('artiste')" :active="request()->routeIs('artiste')">
+                {{ __('Artiste') }}
             </x-responsive-nav-link>
         </div>
 
