@@ -36,7 +36,7 @@ function Reservation(test) {
     if (GalerieSupAfficher === null && test === 1) {
         axios.get('/GalerieSup').then(response => {
              ReservationBouton.innerHTML =  response.data;
-            // console.log(response);
+            console.log(response);
 
             // return total = document.querySelectorAll('.blockPlace').length;
 
@@ -53,6 +53,26 @@ function Reservation(test) {
                     element.classList.toggle('blockPlaceActive');
                 })
                 console.log("click");
+            });
+
+            // let blockPlace = document.querySelectorAll('.blockPlace');
+
+
+
+        }).then(() => {
+            let blockPlace = document.querySelectorAll('.blockPlace');
+            // let array = $placesTotal;
+            console.log("tresudhj")
+            blockPlace.forEach(function (element) {
+                let attribute = element.getAttribute('data-NumeroPlace')
+                for (let i = 0; i < array.length; i++) {
+                    let valeur = array[i];
+                    if (attribute === valeur.NumberPlace) {
+                        element.classList.add('placeReserve')
+                        console.log(attribute,valeur.NumberPlace)
+
+                    }
+                }
             });
         })
 

@@ -59,8 +59,9 @@ class Controller extends BaseController
     }
     public function GalerieSup()
     {
-
-        return view("GalerieSup");
+        $placesTotal = DB::table('reservations')->join("concerts", "idConcert","=","concerts.id")->select("NumberPlace")->get();
+//        dd($placesTotal);
+        return view("GalerieSup",compact('placesTotal'));
     }
     public function artiste()
     {
