@@ -28,17 +28,19 @@ Cour.addEventListener('click', function () {
 let blockPlace = document.querySelectorAll('.blockPlace');
 let total = "Null sa marche pas"
 
-
+function getCurrentURL () {
+    return window.location.href
+}
 function Reservation(test) {
     GalerieSupAfficher = document.getElementById('GalerieSupAfficher');
-
+    let infoConcert = getCurrentURL().split('/').pop();
     // ReservationBouton.insertAdjacentHTML('afterend', '<div class="alert alert-success" role="alert">Votre réservation a bien été prise en compte</div>');
     if (GalerieSupAfficher === null && test === 1) {
-        axios.get('/GalerieSup').then(response => {
-             ReservationBouton.innerHTML =  response.data;
-            console.log(response);
+        axios.get('/GalerieSup/'+infoConcert
 
-            // return total = document.querySelectorAll('.blockPlace').length;
+    ).then(response => {
+             ReservationBouton.innerHTML =  response.data;
+            console.log(response.data);
 
 
         }).catch(err => {
@@ -55,27 +57,10 @@ function Reservation(test) {
                 console.log("click");
             });
 
-            // let blockPlace = document.querySelectorAll('.blockPlace');
 
 
 
-        }).then(() => {
-            let blockPlace = document.querySelectorAll('.blockPlace');
-            // let array = $placesTotal;
-            console.log("tresudhj")
-            blockPlace.forEach(function (element) {
-                let attribute = element.getAttribute('data-NumeroPlace')
-                for (let i = 0; i < array.length; i++) {
-                    let valeur = array[i];
-                    if (attribute === valeur.NumberPlace) {
-                        element.classList.add('placeReserve')
-                        console.log(attribute,valeur.NumberPlace)
-
-                    }
-                }
-            });
         })
-
 
         console.log("Reservation", test);
 

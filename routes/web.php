@@ -21,7 +21,7 @@ Route::get("contact",[Controller::class, "contact"])->name("contact");
 Route::get("artiste",[Controller::class, "artiste"])->name("artiste");
 
 Route::get("reservation/{data}",[Controller::class, "reservation"])->name("reservation");
-Route::get("GalerieSup",[Controller::class, "GalerieSup"])->name("GalerieSup");
+Route::get("GalerieSup/{data}",[Controller::class, "GalerieSup"])->name("GalerieSup");
 
 //test axios
 Route::get('/axios',[Controller::class, 'axios']);
