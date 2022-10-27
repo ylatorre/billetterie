@@ -18,6 +18,9 @@ return new class extends Migration
             $table->integer('IdUser');
             $table->integer('idConcert');
             $table->integer('NumberPlace');
+            $table->date('dateReservation');
+            $table->float('prixPlace');
+            $table->timestamps();
         });
     }
 
