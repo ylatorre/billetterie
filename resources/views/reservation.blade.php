@@ -25,11 +25,14 @@
                     <button id="GalCen" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded">Galerie centrale</button>
                     <button id="GalInf" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded">Galerie inférieure</button>
                     <button id="Cour" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded">Cour</button>
+                    <button id="valider" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded">Valider</button>
+
                 </div>
 
-                <img class="h-96" src="https://production.tnew-assets.com/orgs/SGTH/syos/Images/smap-13/smap-13.png?tnewToken=e3a502ee-4854-4e4b-b4ac-c073187593c5" alt="">
+                <img class="h-96" id="imgSalle" src="https://production.tnew-assets.com/orgs/SGTH/syos/Images/smap-13/smap-13.png?tnewToken=e3a502ee-4854-4e4b-b4ac-c073187593c5" alt="">
+                <div id="ReservationBouton" class="w-20 h-1"></div>
+
             </div>
-            <div id="ReservationBouton" class="w-20 h-1"></div>
         </div>
     </div>
 </x-app-layout>

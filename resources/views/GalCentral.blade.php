@@ -14,13 +14,13 @@
                         @if($place->NumberPlace === $numeroDePlace)
                             @php($etat = 1)
 
-                            <button data-NumeroPlace="{{$numeroDePlace}}"
+                            <button id="{{$numeroDePlace}}" data-NumeroPlace="{{$numeroDePlace}}"
                                     class="blockPlace p-1 m-1 placeReserve"></button>
                             @break
                         @endif
                     @endforeach
                     @if($etat === 0)
-                        <button data-NumeroPlace="{{$numeroDePlace}}" class="blockPlace p-1 m-1"></button>
+                        <button id="{{$numeroDePlace}}" data-NumeroPlace="{{$numeroDePlace}}" class="blockPlace p-1 m-1"></button>
                     @endif
                     @if($i2% 10 == 0 && $i2 != 0)
 
@@ -44,13 +44,13 @@
                         @if($place->NumberPlace === $numeroDePlace)
                             @php($etat = 1)
 
-                            <button data-NumeroPlace="{{$numeroDePlace}}"
+                            <button id="{{$numeroDePlace}}" data-NumeroPlace="{{$numeroDePlace}}"
                                     class="blockPlace p-1 m-1 placeReserve"></button>
                             @break
                         @endif
                     @endforeach
                     @if($etat === 0)
-                        <button data-NumeroPlace="{{$numeroDePlace}}" class="blockPlace p-1 m-1"></button>
+                        <button id="{{$numeroDePlace}}" data-NumeroPlace="{{$numeroDePlace}}" class="blockPlace p-1 m-1"></button>
                     @endif
 
                     @php($etat = 0)
@@ -72,13 +72,13 @@
                         @if($place->NumberPlace === $numeroDePlace)
                             @php($etat = 1)
 
-                            <button data-NumeroPlace="{{$numeroDePlace}}"
+                            <button id="{{$numeroDePlace}}" data-NumeroPlace="{{$numeroDePlace}}"
                                     class="blockPlace p-1 m-1 placeReserve"></button>
                             @break
                         @endif
                     @endforeach
                     @if($etat === 0)
-                        <button data-NumeroPlace="{{$numeroDePlace}}" class="blockPlace p-1 m-1"></button>
+                        <button id="{{$numeroDePlace}}" data-NumeroPlace="{{$numeroDePlace}}" class="blockPlace p-1 m-1"></button>
                     @endif
 
                     @php($etat = 0)

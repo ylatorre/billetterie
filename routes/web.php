@@ -24,7 +24,11 @@ Route::get("reservation/{data}",[Controller::class, "reservation"])->name("reser
 Route::get("GalerieSup/{data}",[Controller::class, "GalerieSup"])->name("GalerieSup");
 Route::get("GalerieCentral/{data}",[Controller::class, "GalerieCentral"])->name("GalerieCentral");
 Route::get("GalerieInferieur/{data}",[Controller::class, "GalerieInferieur"])->name("GalerieInferieur");
-Route::get("Cour/{data}",[Controller::class, "cour"])->name("cour");
+Route::get("cour/{data}",[Controller::class, "cour"])->name("cour");
+
+Route::post("verifePlace",[Controller::class, "verifePlace"])->name("verifePlace");
+Route::get("verifePlace",[Controller::class, "verifePlace"])->name("verifePlace");
+
 
 //test axios
 Route::get('/axios',[Controller::class, 'axios']);

@@ -8,6 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 class Controller extends BaseController
 {
@@ -28,10 +29,45 @@ class Controller extends BaseController
 
     }
 
-    public function test()
+    public function test(Request $request)
     {
+
         return view("test");
     }
+    public function verifePlace(Request $request)
+    {
+        if (Auth()->check()) {
+//            $id    = Auth()->user()->id;
+//            $place = DB::table("place")->where("id_user", $id)->get();
+//            if ($place->count() > 0) {
+//                return redirect()->route("accueil")->with("error", "Vous avez deja reserver une place");
+//            } else {
+//                $data  = $request->all();
+//                $place = DB::table("place")->where("id", $data["id"])->first();
+//                if ($place->id_user == null) {
+//                    DB::table("place")->where("id", $data["id"])->update(["id_user" => $id]);
+//                    return redirect()->route("accueil")->with("success", "Votre place a ete reserver avec succes");
+//                } else {
+//                    return redirect()->route("accueil")->with("error", "Cette place a deja ete reserver");
+//                }
+            }
+//        $data = $request->all();
+//        $place = $data["place"];
+//        $date = $data["date"];
+//        $heure = $data["heure"];
+//        $id = $data["id"];
+//        $place = DB::table("place")->where("id", $place)->first();
+//        $place = $place->place;
+//        $place = DB::table("reservation")->where("place", $place)->where("date", $date)->where("heure", $heure)->where("id", "!=", $id)->first();
+//        if ($place) {
+//            return "place deja reserver";
+//        } else {
+//            return "place libre";
+//        };
+
+            return $request;
+
+        }
 
     public function accueil()
     {
