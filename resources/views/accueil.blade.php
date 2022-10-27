@@ -28,6 +28,9 @@
 
                                     </div>
                                 </div>
+                                <div class="flex items-end">
+                                    <a class="bouttonReservation " href="/reservation/{{$concert->id}}">Réserver votre billet</a>
+                                </div>
                             </div>
                             <hr class="mb-2">
                             @endforeach
