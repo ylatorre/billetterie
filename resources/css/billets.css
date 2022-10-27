@@ -18,13 +18,8 @@ widget {
 }
 
 .blockBillet{
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*align-items: center;*/
-    /*margin-top: 10px;*/
-    /*margin-bottom: 10px;*/
-    /*margin-right:270px;*/
-    padding-bottom: 540px;
+
+    padding-bottom: 560px;
 }
 .blockTotalBillet{
     /*display: flex;*/
@@ -41,4 +36,7 @@ widget {
 .blockBillet:hover{
     z-index:10;
 
+}
+#cards{
+    display: none;
 }

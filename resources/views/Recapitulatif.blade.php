@@ -3,7 +3,6 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
         </h2>
     </x-slot>
-
     {{--    @foreach ($)--}}
     {{--{{$PrixPlace}}--}}
     {{--    @endforeach--}}
@@ -70,7 +69,7 @@
     {{--                                @endforeach--}}
 
 
-    <div class="">
+    <div class="" id="cards">
         <div class="px-8">
             <div class="">
 
@@ -116,8 +115,15 @@
                         </div>
                     </div>
                     <div class="rip"></div>
-                    <div class="bottom --flex-row-j!sb codebar">
-                        <div class="barcode"></div>
+{{--                    <svg class="barcode"--}}
+{{--                         jsbarcode-format="upc"--}}
+
+{{--                         jsbarcode-value="{{$Numero.$concert->Price.$concert->Name}}"--}}
+{{--                         jsbarcode-textmargin="0"--}}
+{{--                         jsbarcode-fontoptions="bold">--}}
+{{--                    </svg>--}}
+                    <svg id="barcode{{$Numero}}"></svg>
+                    <div class="bottom --flex-row-j!sb ">
                         <a class="buy" href="#">Download</a>
                     </div>
                 </widget>
@@ -129,4 +135,16 @@
             </div>
         </div>
     </div>
+
+<div class="flex flex-col items-center" style="padding-top:45% " id="payment">
+    <div class="w-52 flex">
+        <form class="flex flex-col items-center" action="">
+{{--            paiment--}}
+            <input type="text"  id="cardNumber" placeholder="Card Number">
+            <input type="text"  id="cardExpiry" placeholder="MM / YY">
+            <input type="text" id="cardCVC" placeholder="CVC">
+            <a id="payBtn">Pay</a>
+        </form>
+    </div>
+</div>
 </x-app-layout>
