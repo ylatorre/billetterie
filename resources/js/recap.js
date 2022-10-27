@@ -31,3 +31,6 @@ for (let i = 0; i < arrayPlace.length; i++) {
     //     console.log(response);
     // })
 }
+
+
+

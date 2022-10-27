@@ -86,7 +86,7 @@ class Controller extends BaseController
         $PrixPlace = $data[2];
 //        dd($data,$idConcert,$NumeroPlace,$PrixPlace);
 
-        $concert = DB::table('concerts')->where('id', $idConcert)->get()->first();
+        $concert = DB::table('concerts')->where('concerts.id', $idConcert)->join("artistes","concerts.IdArtiste","artistes.id")->get()->first();
 //dd($concert);
         return view("recapitulatif",compact("concert","NumeroPlace","PrixPlace"));
     }
