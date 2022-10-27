@@ -15,7 +15,7 @@
                 <!--Formulaire -->
                 <section class="bg-white BG-WHITE:bg-gray-900 max-w-3xl ">
                     <div class="py-0 lg:py-2 px-4 mx-auto max-w-screen-md">
-                        <h2 class="mb-0 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Contacter Nous</h2>
+                        
                         <p class="mb-1 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Vous avez un problème technique ? Vous voulez envoyer des commentaires sur une fonctionnalité ? Besoin de détails sur un concert ? Faites-nous savoir !</p>
                         <form action="#" class="space-y-8">
                             <div>
