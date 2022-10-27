@@ -14,7 +14,6 @@ let arrayPlace = [];
 
 GalerieSup.addEventListener('click', function () {
     Reservation(1)
-
     // ReservationBouton.remove()
 });
 
@@ -141,16 +140,34 @@ function Reservation(id) {
 }
 
 
-let blockPlaceActive = document.querySelectorAll('.blockPlaceActive');
 
 valider.addEventListener('click', function () {
-    console.log(arrayPlace)
+    if (arrayPlace.length === 0) {
+        return alert('Vous devez selectionner au moins une place')
+    }
+
+        console.log(arrayPlace, window.userID)
+        let blockPlaceActive = document.querySelectorAll('.blockPlaceActive');
+
+        blockPlaceActive.forEach(async function (element) {
+            element.classList.remove('blockPlaceActive');
+            element.classList.add('placeReserve');
+        })
+
     axios.post('/verifePlace', {
         placeSelectionner: arrayPlace,
-        idConcert: infoConcert
+        idConcert: infoConcert,
+        idUser: window.userID
     }).then(response => {
         console.log(response.data)
+        // window.location.href = '/';
+        // commit( 'SET_LOAD_STATUS', 2 );
+//redirect with session data
+        window.location.href = '/recapitulatifPaiment/'  + infoConcert + ';' + arrayPlace+";"+response.data;
+        arrayPlace = [];
+
     }).catch(err => {
         console.log(err)
     })
 })
+

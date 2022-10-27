@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -34,47 +35,71 @@ class Controller extends BaseController
 
         return view("test");
     }
+
     public function verifePlace(Request $request)
     {
-        if (Auth()->check()) {
-//            $id    = Auth()->user()->id;
-//            $place = DB::table("place")->where("id_user", $id)->get();
-//            if ($place->count() > 0) {
-//                return redirect()->route("accueil")->with("error", "Vous avez deja reserver une place");
-//            } else {
-//                $data  = $request->all();
-//                $place = DB::table("place")->where("id", $data["id"])->first();
-//                if ($place->id_user == null) {
-//                    DB::table("place")->where("id", $data["id"])->update(["id_user" => $id]);
-//                    return redirect()->route("accueil")->with("success", "Votre place a ete reserver avec succes");
-//                } else {
-//                    return redirect()->route("accueil")->with("error", "Cette place a deja ete reserver");
-//                }
+        $id = Auth()->user()->id;
+        if ($id == $request->get('idUser') && Auth()->check()) {
+            //add in database
+            $prixConcert = DB::table('concerts')->where('id', $request->get('idConcert'))->get()->first()->Price;
+            if (count($request->get('placeSelectionner')) > 1) {
+                foreach ($request->get('placeSelectionner') as $place) {
+                    DB::table('reservations')->insert([
+                        'idUser'          => $id,
+                        'NumberPlace'     => $place,
+                        'idConcert'       => $request->get('idConcert'),
+//                        'date' => $request->get('date'),
+//                        'heure' => $request->get('heure'),
+//                        'prixPlace' => $request->get('prix'),
+                        'created_at'      => now(),
+                        'updated_at'      => now(),
+                        "dateReservation" => now(),
+                        "prixPlace"       => $prixConcert,
+                    ]);
+                }
+
+            } else {
+                DB::table('reservations')->insert([
+                    'idUser'          => $id,
+                    'idConcert'       => $request->get('idConcert'),
+                    'NumberPlace'     => $request->get('placeSelectionner')[0],
+                    "dateReservation" => now(),
+                    "prixPlace"       => 12,
+
+
+                ]);
             }
-//        $data = $request->all();
-//        $place = $data["place"];
-//        $date = $data["date"];
-//        $heure = $data["heure"];
-//        $id = $data["id"];
-//        $place = DB::table("place")->where("id", $place)->first();
-//        $place = $place->place;
-//        $place = DB::table("reservation")->where("place", $place)->where("date", $date)->where("heure", $heure)->where("id", "!=", $id)->first();
-//        if ($place) {
-//            return "place deja reserver";
-//        } else {
-//            return "place libre";
-//        };
-
-            return $request;
-
+            return $prixConcert;
+        } else {
+//            dd("not ok");
+            return redirect()->route('accueil')->with('error', 'Erreur lors de la reservation');
         }
+//        return $request;
+//        return redirect()->back()->with('success', 'Votre reservation a ete enregistre');
+    }
+
+    public function recapitulatif($data)
+    {
+        $data = explode(";", $data);
+        $idConcert = $data[0];
+        $NumeroPlace = explode(",",$data[1]);
+        $PrixPlace = $data[2];
+//        dd($data,$idConcert,$NumeroPlace,$PrixPlace);
+
+        $concert = DB::table('concerts')->where('id', $idConcert)->get()->first();
+//dd($concert);
+        return view("recapitulatif",compact("concert","NumeroPlace","PrixPlace"));
+    }
+
+
 
     public function accueil()
     {
         $concerts = DB::table('concerts')->get();
 
-        return view("accueil",compact('concerts'));
+        return view("accueil", compact('concerts'));
     }
+
     public function acteur()
     {
 
@@ -91,39 +116,45 @@ class Controller extends BaseController
 //        dd($data);
         $concert = DB::table('concerts')->where('id', $data)->get()->toArray();
 
-        return view("reservation",compact('concert'));
+        return view("reservation", compact('concert'));
     }
+
     public function GalerieSup($data)
     {
 //        dd($data);
-        $placesTotal = DB::table('reservations')->join("concerts", "idConcert","=","concerts.id")->select("NumberPlace")->where('reservations.idConcert', $data)->get()->toArray();
+        $placesTotal = DB::table('reservations')->join("concerts", "idConcert", "=", "concerts.id")->select("NumberPlace")->where('reservations.idConcert', $data)->get()->toArray();
 
 
 //        dd($placesTotal);
-        return view("GalerieSup",compact('placesTotal'));
+        return view("GalerieSup", compact('placesTotal'));
     }
+
     public function GalerieCentral($data)
     {
-        $placesTotal = DB::table('reservations')->join("concerts", "idConcert","=","concerts.id")->select("NumberPlace")->where('reservations.idConcert', $data)->get()->toArray();
+        $placesTotal = DB::table('reservations')->join("concerts", "idConcert", "=", "concerts.id")->select("NumberPlace")->where('reservations.idConcert', $data)->get()->toArray();
 
 
 //        dd($placesTotal);
-        return view("GalCentral",compact('placesTotal'));
+        return view("GalCentral", compact('placesTotal'));
     }
+
     public function GalerieInferieur($data)
     {
         $placesTotal = DB::table('reservations')->join("concerts", "idConcert", "=", "concerts.id")->select("NumberPlace")->where('reservations.idConcert', $data)->get()->toArray();
         return view("GalerieInferieur", compact('placesTotal'));
     }
+
     public function cour($data)
     {
         $placesTotal = DB::table('reservations')->join("concerts", "idConcert", "=", "concerts.id")->select("NumberPlace")->where('reservations.idConcert', $data)->get()->toArray();
         return view("cour", compact('placesTotal'));
     }
+
+
     public function artiste()
     {
         $artistes = DB::table('artistes')->get();
-        return view("artiste",compact('artistes'));
+        return view("artiste", compact('artistes'));
     }
 }
 
