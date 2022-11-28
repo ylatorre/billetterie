@@ -8,13 +8,16 @@ const ReservationBouton = document.getElementById('ReservationBouton');
 let GalerieSupAfficher  = document.getElementById('GalerieSupAfficher');
 let imgSalle            = document.getElementById('imgSalle');
 let valider             = document.getElementById('valider');
+let AfficheListeBillets = document.getElementById('AfficheListeBillets');
 let infoConcert         = getCurrentURL().split('/').pop();
+let arrayPlaceTemp      = [];
+let arrayPlace          = [];
 
-let arrayPlace = [];
 
 GalerieSup.addEventListener('click', function () {
+
     Reservation(1)
-    // ReservationBouton.remove()
+
 });
 
 
@@ -37,6 +40,10 @@ function getCurrentURL() {
 
 function Reservation(id) {
 
+
+
+
+
     imgSalle.remove()
     GalerieSupAfficher = document.getElementById('GalerieSupAfficher');
     if (GalerieSupAfficher === null && id === 1) {
@@ -51,7 +58,26 @@ function Reservation(id) {
                     if (element.classList.contains('placeReserve') === false) {
                         element.classList.toggle('blockPlaceActive');
                         arrayPlace.push(element.getAttribute('data-numeroplace'));
+                        if (arrayPlaceTemp.length !== arrayPlace.length) {
+                            console.log("different")
+
+                            AfficheListeBillets.innerHTML = '';
+                            arrayPlaceTemp.push(arrayPlace.at(-1));
+
+                            for (let i = 0; i < arrayPlaceTemp.length; i++) {
+                                // if(getPlaceId[i].getAttribute('data-numeroplace') === arrayPlaceTemp[i]){
+                                //
+                                // }else {
+                                if (document.getElementById("Place" + arrayPlaceTemp[i]) !== null) {
+                                    document.getElementById("Place" + arrayPlaceTemp[i]).remove()
+                                } else {
+                                    AfficheListeBillets.insertAdjacentHTML("beforeend", "<div><div class='flex flex-row listRow' id=" + "Place" + arrayPlaceTemp[i] + "> Place " + arrayPlaceTemp[i] + " selectionner<div>" + "<a> supprimer</a>" + "</div>");
+                                }
+                            }
+
+                        }
                     }
+
                 })
             });
             for (let i = 0; i < arrayPlace.length; i++) {
@@ -59,10 +85,10 @@ function Reservation(id) {
                     let save = document.getElementById(arrayPlace[i])
                     save.classList.toggle('blockPlaceActive');
                 }
-                continue;
             }
         })
     }
+
     if (id === 2) {
         axios.get('/GalerieCentral/' + infoConcert).then(response => {
             ReservationBouton.innerHTML = response.data;
@@ -75,6 +101,20 @@ function Reservation(id) {
                     if (element.classList.contains('placeReserve') === false) {
                         element.classList.toggle('blockPlaceActive');
                         arrayPlace.push(element.getAttribute('data-numeroplace'));
+                        if (arrayPlaceTemp.length !== arrayPlace.length) {
+
+                            console.log("different")
+                            AfficheListeBillets.innerHTML = '';
+                            arrayPlaceTemp.push(arrayPlace.at(-1));
+                            for (let i = 0; i < arrayPlaceTemp.length; i++) {
+
+                                if (document.getElementById("Place" + arrayPlaceTemp[i]) !== null) {
+                                    document.getElementById("Place" + arrayPlaceTemp[i]).remove()
+                                } else {
+                                    AfficheListeBillets.insertAdjacentHTML("beforeend", "<div><div class='flex flex-row listRow' id=" + "Place" + arrayPlaceTemp[i] + "> Place " + arrayPlaceTemp[i] + " selectionner<div>" + "<a> supprimer</a>" + "</div>");
+                                }
+                            }
+                        }
                     }
 
                 })
@@ -84,7 +124,6 @@ function Reservation(id) {
                     let save = document.getElementById(arrayPlace[i])
                     save.classList.toggle('blockPlaceActive');
                 }
-
             }
         })
     }
@@ -100,7 +139,21 @@ function Reservation(id) {
                     if (element.classList.contains('placeReserve') === false) {
                         element.classList.toggle('blockPlaceActive');
                         arrayPlace.push(element.getAttribute('data-numeroplace'));
+                        if (arrayPlaceTemp.length !== arrayPlace.length) {
+                            console.log("different")
+                            AfficheListeBillets.innerHTML = '';
+                            arrayPlaceTemp.push(arrayPlace.at(-1));
+                            for (let i = 0; i < arrayPlaceTemp.length; i++) {
+
+                                if (document.getElementById("Place" + arrayPlaceTemp[i]) !== null) {
+                                    document.getElementById("Place" + arrayPlaceTemp[i]).remove()
+                                } else {
+                                    AfficheListeBillets.insertAdjacentHTML("beforeend", "<div><div class='flex flex-row listRow' id=" + "Place" + arrayPlaceTemp[i] + "> Place " + arrayPlaceTemp[i] + " selectionner<div>" + "<a> supprimer</a>" + "</div>");
+                                }
+                            }
+                        }
                     }
+
                 })
             });
             for (let i = 0; i < arrayPlace.length; i++) {
@@ -108,7 +161,6 @@ function Reservation(id) {
                     let save = document.getElementById(arrayPlace[i])
                     save.classList.toggle('blockPlaceActive');
                 }
-
             }
         })
     }
@@ -124,9 +176,38 @@ function Reservation(id) {
                     if (element.classList.contains('placeReserve') === false) {
                         element.classList.toggle('blockPlaceActive');
                         arrayPlace.push(element.getAttribute('data-numeroplace'));
+                        if (arrayPlaceTemp.length !== arrayPlace.length) {
+                            console.log("different")
+                            AfficheListeBillets.innerHTML = '';
+                            arrayPlaceTemp.push(arrayPlace.at(-1));
+                            for (let i = 0; i < arrayPlaceTemp.length; i++) {
+
+                                if (document.getElementById("Place" + arrayPlaceTemp[i]) !== null) {
+                                    document.getElementById("Place" + arrayPlaceTemp[i]).remove()
+                                } else {
+                                    AfficheListeBillets.insertAdjacentHTML("beforeend", "<div><div class='flex flex-row listRow' id=" + "Place" + arrayPlaceTemp[i] + "> Place " + arrayPlaceTemp[i] + " selectionner<div>" + "<a id=" + "Supprimer" + arrayPlaceTemp[i] + "> supprimer</a>" + "</div>");
+                                }
+                            }
+                        }
                     }
-
-
+                    // Functionne
+                    let getSupprimer = document.querySelectorAll(`[id^="Supprimer"]`);
+                    for (let i = 0; i < arrayPlaceTemp.length; i++) {
+                        getSupprimer[i].addEventListener('click', function () {
+                            // console.log(arrayPlaceTemp[i], arrayPlaceTemp)
+                            //slite id Supprimer and get the number
+                            let id = this.id.slice(9);
+                            console.log(id)
+                            //remove the element
+                            document.getElementById("Place" + id).remove();
+                            //remove the element in the array
+                            arrayPlaceTemp.splice(arrayPlaceTemp.indexOf(id), 1);
+                            //remove the element in the array
+                            arrayPlace.splice(arrayPlace.indexOf(id), 1);
+                            //remove the class active
+                            document.getElementById(id).classList.remove('blockPlaceActive');
+                        })
+                    }
                 })
             });
             for (let i = 0; i < arrayPlace.length; i++) {
@@ -137,8 +218,8 @@ function Reservation(id) {
             }
         })
     }
-}
 
+}
 
 
 valider.addEventListener('click', function () {
@@ -146,28 +227,33 @@ valider.addEventListener('click', function () {
         return alert('Vous devez selectionner au moins une place')
     }
 
-        console.log(arrayPlace, window.userID)
-        let blockPlaceActive = document.querySelectorAll('.blockPlaceActive');
+    console.log(arrayPlace, window.userID)
+    let blockPlaceActive = document.querySelectorAll('.blockPlaceActive');
 
-        blockPlaceActive.forEach(async function (element) {
-            element.classList.remove('blockPlaceActive');
-            element.classList.add('placeReserve');
-        })
+    blockPlaceActive.forEach(async function (element) {
+        element.classList.remove('blockPlaceActive');
+        element.classList.add('placeReserve');
+    })
 
     axios.post('/verifePlace', {
-        placeSelectionner: arrayPlace,
-        idConcert: infoConcert,
-        idUser: window.userID
+        placeSelectionner: arrayPlace, idConcert: infoConcert, idUser: window.userID
     }).then(response => {
         console.log(response.data)
-        // window.location.href = '/';
-        // commit( 'SET_LOAD_STATUS', 2 );
-//redirect with session data
-        window.location.href = '/recapitulatifPaiment/'  + infoConcert + ';' + arrayPlace+";"+response.data;
-        arrayPlace = [];
+        window.location.href = '/recapitulatifPaiment/' + infoConcert + ';' + arrayPlace + ";" + response.data;
+        arrayPlace           = [];
 
     }).catch(err => {
         console.log(err)
     })
 })
+const test = () => {
+    // your function code here
+    console.log("test")
+};
+
+
+
+
+
+
 

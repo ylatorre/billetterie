@@ -80,17 +80,16 @@ class Controller extends BaseController
 
     public function recapitulatif($data)
     {
-        $data = explode(";", $data);
-        $idConcert = $data[0];
-        $NumeroPlace = explode(",",$data[1]);
-        $PrixPlace = $data[2];
+        $data        = explode(";", $data);
+        $idConcert   = $data[0];
+        $NumeroPlace = explode(",", $data[1]);
+        $PrixPlace   = $data[2];
 //        dd($data,$idConcert,$NumeroPlace,$PrixPlace);
 
-        $concert = DB::table('concerts')->where('concerts.id', $idConcert)->join("artistes","concerts.IdArtiste","artistes.id")->get()->first();
+        $concert = DB::table('concerts')->where('concerts.id', $idConcert)->join("artistes", "concerts.IdArtiste", "artistes.id")->get()->first();
 //dd($concert);
-        return view("recapitulatif",compact("concert","NumeroPlace","PrixPlace"));
+        return view("recapitulatif", compact("concert", "NumeroPlace", "PrixPlace"));
     }
-
 
 
     public function accueil()

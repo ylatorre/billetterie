@@ -54,3 +54,7 @@
 .rip{
     border-style : dotted;
 }
+
+.listRow{
+    padding-right: 10px;
+}

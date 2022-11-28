@@ -12,16 +12,17 @@ widget {
     height: 450px;
 }
 
-.widget{
+.widget {
     margin: 0;
     padding: 0;
 }
 
-.blockBillet{
+.blockBillet {
 
     padding-bottom: 560px;
 }
-.blockTotalBillet{
+
+.blockTotalBillet {
     /*display: flex;*/
     /*flex-direction: row;*/
     /*justify-content: space-between;*/
@@ -33,10 +34,26 @@ widget {
     grid-auto-rows: 100px;
     justify-items: stretch;
 }
-.blockBillet:hover{
-    z-index:10;
+
+.blockBillet:hover {
+    z-index: 10;
 
 }
-#cards{
+
+#cards {
     display: none;
+}
+
+#payBtn {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+#payBtn:hover {
+    background-color: white;
+    color: black;
 }
