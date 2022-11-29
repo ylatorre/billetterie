@@ -245,40 +245,39 @@ valider.addEventListener('click', function () {
 })
 
 
-
 //when change in AfficheListeBillets and click in supprimer remove the element in the array
 //create function for the supprimer
 
-AfficheListeBillets.addEventListener('click', function (e) {
-console.log("clicker 1")
+AfficheListeBillets.addEventListener('mouseover', function (e) {
     //when click on supprimer delete the element
     // Functionne
     let getSupprimer = document.querySelectorAll(`[id^="Supprimer"]`);
 
     for (let i = 0; i < arrayPlace.length; i++) {
-
-        console.log("clicker 2")
-
-
-        getSupprimer[i].addEventListener('click', function () {
-            console.log(arrayPlaceTemp[i], arrayPlaceTemp)
-            //slite id Supprimer and get the number
-            let id = this.id.slice(9);
-            console.log("clicker 3")
-
-            //remove the element
-            document.getElementById("Place" + id).remove();
-            //remove the element in the array
-            arrayPlaceTemp.splice(arrayPlaceTemp.indexOf(id), 1);
-            //remove the element in the array
-            arrayPlace.splice(arrayPlace.indexOf(id), 1);
-            //remove the class active
-            document.getElementById(id).classList.remove('blockPlaceActive');
-        })
+        try {
+            getSupprimer[i].addEventListener('click', function () {
+                if (arrayPlace.length === 0) {
+                    return 0
+                }
+                console.log(arrayPlaceTemp[i], arrayPlaceTemp)
+                //slite id Supprimer and get the number
+                let id = this.id.slice(9);
+                //remove the element
+                document.getElementById("Place" + id).remove();
+                //remove the element in the array
+                arrayPlaceTemp.splice(arrayPlaceTemp.indexOf(id), 1);
+                //remove the element in the array
+                arrayPlace.splice(arrayPlace.indexOf(id), 1);
+                //remove the class active
+                document.getElementById(id).classList.remove('blockPlaceActive');
+            })
+        } catch (e) {
+            console.log(e)
+        }
     }
 
 })
-// }
+
 
 
 
