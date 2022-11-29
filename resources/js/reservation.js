@@ -41,9 +41,6 @@ function getCurrentURL() {
 function Reservation(id) {
 
 
-
-
-
     imgSalle.remove()
     GalerieSupAfficher = document.getElementById('GalerieSupAfficher');
     if (GalerieSupAfficher === null && id === 1) {
@@ -71,7 +68,7 @@ function Reservation(id) {
                                 if (document.getElementById("Place" + arrayPlaceTemp[i]) !== null) {
                                     document.getElementById("Place" + arrayPlaceTemp[i]).remove()
                                 } else {
-                                    AfficheListeBillets.insertAdjacentHTML("beforeend", "<div><div class='flex flex-row listRow' id=" + "Place" + arrayPlaceTemp[i] + "> Place " + arrayPlaceTemp[i] + " selectionner<div>" + "<a> supprimer</a>" + "</div>");
+                                    AfficheListeBillets.insertAdjacentHTML("beforeend", "<div><div class='flex flex-row listRow' id=" + "Place" + arrayPlaceTemp[i] + "> Place " + arrayPlaceTemp[i] + " selectionner<div>" + "<a id=" + "Supprimer" + arrayPlaceTemp[i] + "> supprimer</a>" + "</div>");
                                 }
                             }
 
@@ -111,7 +108,7 @@ function Reservation(id) {
                                 if (document.getElementById("Place" + arrayPlaceTemp[i]) !== null) {
                                     document.getElementById("Place" + arrayPlaceTemp[i]).remove()
                                 } else {
-                                    AfficheListeBillets.insertAdjacentHTML("beforeend", "<div><div class='flex flex-row listRow' id=" + "Place" + arrayPlaceTemp[i] + "> Place " + arrayPlaceTemp[i] + " selectionner<div>" + "<a> supprimer</a>" + "</div>");
+                                    AfficheListeBillets.insertAdjacentHTML("beforeend", "<div><div class='flex flex-row listRow' id=" + "Place" + arrayPlaceTemp[i] + "> Place " + arrayPlaceTemp[i] + " selectionner<div>" + "<a id=" + "Supprimer" + arrayPlaceTemp[i] + "> supprimer</a>" + "</div>");
                                 }
                             }
                         }
@@ -148,12 +145,11 @@ function Reservation(id) {
                                 if (document.getElementById("Place" + arrayPlaceTemp[i]) !== null) {
                                     document.getElementById("Place" + arrayPlaceTemp[i]).remove()
                                 } else {
-                                    AfficheListeBillets.insertAdjacentHTML("beforeend", "<div><div class='flex flex-row listRow' id=" + "Place" + arrayPlaceTemp[i] + "> Place " + arrayPlaceTemp[i] + " selectionner<div>" + "<a> supprimer</a>" + "</div>");
+                                    AfficheListeBillets.insertAdjacentHTML("beforeend", "<div><div class='flex flex-row listRow' id=" + "Place" + arrayPlaceTemp[i] + "> Place " + arrayPlaceTemp[i] + " selectionner<div>" + "<a id=" + "Supprimer" + arrayPlaceTemp[i] + "> supprimer</a>" + "</div>");
                                 }
                             }
                         }
                     }
-
                 })
             });
             for (let i = 0; i < arrayPlace.length; i++) {
@@ -190,24 +186,24 @@ function Reservation(id) {
                             }
                         }
                     }
-                    // Functionne
-                    let getSupprimer = document.querySelectorAll(`[id^="Supprimer"]`);
-                    for (let i = 0; i < arrayPlaceTemp.length; i++) {
-                        getSupprimer[i].addEventListener('click', function () {
-                            // console.log(arrayPlaceTemp[i], arrayPlaceTemp)
-                            //slite id Supprimer and get the number
-                            let id = this.id.slice(9);
-                            console.log(id)
-                            //remove the element
-                            document.getElementById("Place" + id).remove();
-                            //remove the element in the array
-                            arrayPlaceTemp.splice(arrayPlaceTemp.indexOf(id), 1);
-                            //remove the element in the array
-                            arrayPlace.splice(arrayPlace.indexOf(id), 1);
-                            //remove the class active
-                            document.getElementById(id).classList.remove('blockPlaceActive');
-                        })
-                    }
+                    // // Functionne
+                    // let getSupprimer = document.querySelectorAll(`[id^="Supprimer"]`);
+                    // for (let i = 0; i < arrayPlaceTemp.length; i++) {
+                    //     getSupprimer[i].addEventListener('click', function () {
+                    //         // console.log(arrayPlaceTemp[i], arrayPlaceTemp)
+                    //         //slite id Supprimer and get the number
+                    //         let id = this.id.slice(9);
+                    //         console.log(id)
+                    //         //remove the element
+                    //         document.getElementById("Place" + id).remove();
+                    //         //remove the element in the array
+                    //         arrayPlaceTemp.splice(arrayPlaceTemp.indexOf(id), 1);
+                    //         //remove the element in the array
+                    //         arrayPlace.splice(arrayPlace.indexOf(id), 1);
+                    //         //remove the class active
+                    //         document.getElementById(id).classList.remove('blockPlaceActive');
+                    //     })
+                    // }
                 })
             });
             for (let i = 0; i < arrayPlace.length; i++) {
@@ -218,6 +214,7 @@ function Reservation(id) {
             }
         })
     }
+    // supprimer();
 
 }
 
@@ -246,14 +243,42 @@ valider.addEventListener('click', function () {
         console.log(err)
     })
 })
-const test = () => {
-    // your function code here
-    console.log("test")
-};
 
 
 
+//when change in AfficheListeBillets and click in supprimer remove the element in the array
+//create function for the supprimer
 
+AfficheListeBillets.addEventListener('click', function (e) {
+console.log("clicker 1")
+    //when click on supprimer delete the element
+    // Functionne
+    let getSupprimer = document.querySelectorAll(`[id^="Supprimer"]`);
+
+    for (let i = 0; i < arrayPlace.length; i++) {
+
+        console.log("clicker 2")
+
+
+        getSupprimer[i].addEventListener('click', function () {
+            console.log(arrayPlaceTemp[i], arrayPlaceTemp)
+            //slite id Supprimer and get the number
+            let id = this.id.slice(9);
+            console.log("clicker 3")
+
+            //remove the element
+            document.getElementById("Place" + id).remove();
+            //remove the element in the array
+            arrayPlaceTemp.splice(arrayPlaceTemp.indexOf(id), 1);
+            //remove the element in the array
+            arrayPlace.splice(arrayPlace.indexOf(id), 1);
+            //remove the class active
+            document.getElementById(id).classList.remove('blockPlaceActive');
+        })
+    }
+
+})
+// }
 
 
 
