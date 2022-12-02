@@ -42,34 +42,43 @@ class Controller extends BaseController
         if ($id == $request->get('idUser') && Auth()->check()) {
             //add in database
             $prixConcert = DB::table('concerts')->where('id', $request->get('idConcert'))->get()->first()->Price;
-            if (count($request->get('placeSelectionner')) > 1) {
+            if (count($request->get('placeSelectionner')) >= 1) {
                 foreach ($request->get('placeSelectionner') as $place) {
-                    DB::table('reservations')->insert([
-                        'idUser'          => $id,
-                        'NumberPlace'     => $place,
-                        'idConcert'       => $request->get('idConcert'),
-//                        'date' => $request->get('date'),
-//                        'heure' => $request->get('heure'),
-//                        'prixPlace' => $request->get('prix'),
-                        'created_at'      => now(),
-                        'updated_at'      => now(),
-                        "dateReservation" => now(),
-                        "prixPlace"       => $prixConcert,
-                    ]);
+                    //verify that the place is already exists in database when NumberPlace and NumberPlace return false
+                    $placeExist = DB::table('reservations')->where('NumberPlace', $place)->where('idConcert', $request->get('idConcert'))->exists();
+                    if (!$placeExist) {
+                        DB::table('reservations')->insert([
+                            'idUser'          => $id,
+                            'NumberPlace'     => $place,
+                            'idConcert'       => $request->get('idConcert'),
+                            'created_at'      => now(),
+                            'updated_at'      => now(),
+                            "dateReservation" => now(),
+                            "prixPlace"       => $prixConcert,
+                        ]);
+                    }else {
+                        return "false";
+                    }
                 }
 
-            } else {
-                DB::table('reservations')->insert([
-                    'idUser'          => $id,
-                    'idConcert'       => $request->get('idConcert'),
-                    'NumberPlace'     => $request->get('placeSelectionner')[0],
-                    "dateReservation" => now(),
-                    "prixPlace"       => 12,
 
 
-                ]);
+
             }
-            return $prixConcert;
+            else {
+//                DB::table('reservations')->insert([
+//                    'idUser'          => $id,
+//                    'idConcert'       => $request->get('idConcert'),
+//                    'NumberPlace'     => $request->get('placeSelectionner')[0],
+//                    "dateReservation" => now(),
+//                    "prixPlace"       => 12,
+//
+//
+//                ]);
+                return "test2";
+            }
+//            return $prixConcert;
+            return "test3";
         } else {
 //            dd("not ok");
             return redirect()->route('accueil')->with('error', 'Erreur lors de la reservation');
@@ -98,6 +107,7 @@ class Controller extends BaseController
 
         return view("accueil", compact('concerts'));
     }
+
 
     public function acteur()
     {
@@ -154,6 +164,18 @@ class Controller extends BaseController
     {
         $artistes = DB::table('artistes')->get();
         return view("artiste", compact('artistes'));
+    }
+
+    public function profile()
+    {
+
+//        dd(Auth()->user());
+//get in database all reservation of user
+        $reservations = DB::table('reservations')->join("concerts", "idConcert", "=", "concerts.id")->select("concerts.*", "reservations.*","artistes.*")->join("artistes","concerts.IdArtiste","=","artistes.id")->where('reservations.idUser', Auth()->user()->id)->orderBy('reservations.NumberPlace')->orderBy('reservations.idConcert')->get()->toArray();
+//        dd($reservations);
+//        ->join("concerts.IdArtiste","=","artistes.id")
+//        dd($reservations);
+        return view("profile",compact("reservations"));
     }
 }
 

@@ -29,6 +29,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get("GalerieInferieur/{data}",[Controller::class, "GalerieInferieur"])->name("GalerieInferieur");
     Route::get("cour/{data}",[Controller::class, "cour"])->name("cour");
     Route::get("recapitulatifPaiment/{data}",[Controller::class, "recapitulatif"])->name("recapitulatif");
+    Route::get("profile",[Controller::class, "profile"])->name("profile");
 });
 
 

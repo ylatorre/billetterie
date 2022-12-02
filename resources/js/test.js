@@ -39,6 +39,8 @@ axios.get('/axios').then(response => {
 //     })
 // }
 //
-// //addLisenner checkout
-// let checkout = document.getElementById('checkout');
+
+
+
+
 

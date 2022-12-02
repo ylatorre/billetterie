@@ -19,7 +19,7 @@
                                     class="blockPlace p-1 m-1 placeReserve"></button>
                             @break
                         @endif
-                            @if($numeroDePlace >= 2500)
+                            @if($numeroDePlace > 2500)
                                 @break
                             @endif
                     @endforeach

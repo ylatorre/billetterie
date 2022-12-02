@@ -46,6 +46,14 @@
                     <x-slot name="content">
                         <!-- Authentication -->
                         @if(Auth::user() != null)
+                            <form method="GET" action="{{ route('profile') }}">
+                                @csrf
+                            <x-dropdown-link :href="route('profile')"
+                                             onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('Profile') }}
+                            </x-dropdown-link>
+                            </form>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
@@ -54,6 +62,7 @@
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
+
                         </form>
                             @else
                             <form method="POST" action="{{ route('logout') }}">

@@ -168,6 +168,7 @@ function Reservation(id) {
         }).then(() => {
             let blockPlace = document.querySelectorAll('.blockPlace');
             blockPlace.forEach(async function (element) {
+
                 element.addEventListener('click', function () {
                     if (element.classList.contains('placeReserve') === false) {
                         element.classList.toggle('blockPlaceActive');
@@ -224,6 +225,7 @@ valider.addEventListener('click', function () {
         return alert('Vous devez selectionner au moins une place')
     }
 
+
     console.log(arrayPlace, window.userID)
     let blockPlaceActive = document.querySelectorAll('.blockPlaceActive');
 
@@ -236,8 +238,21 @@ valider.addEventListener('click', function () {
         placeSelectionner: arrayPlace, idConcert: infoConcert, idUser: window.userID
     }).then(response => {
         console.log(response.data)
-        window.location.href = '/recapitulatifPaiment/' + infoConcert + ';' + arrayPlace + ";" + response.data;
+        if (response.data === false){
+            console.log("Il y a deja une pkace reserver")
+            //TODO: Afficher lerruer a lutilisateur
+            //Afficher l'erreur a l'utilisateur
+            // let messageErreur = document.getElementById('messageErreur');
+            // messageErreur.innerHTML = "Il y a deja une place reserver";
+            // messageErreur.style.display = "block";
+            // arrayPlace = [];
+            // arrayPlaceTemp = [];
+            // AfficheListeBillets.innerHTML = '';
+        }else   {
+            window.location.href = '/recapitulatifPaiment/' + infoConcert + ';' + arrayPlace + ";" + response.data;
+        }
         arrayPlace           = [];
+
 
     }).catch(err => {
         console.log(err)
