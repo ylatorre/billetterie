@@ -38,6 +38,7 @@ class Controller extends BaseController
 
     public function verifePlace(Request $request)
     {
+//        TODO: Corriger la condition ajouter unique a la fin de la verif actuelle ajoute a chaque fois que la verif est valide
         $id = Auth()->user()->id;
         if ($id == $request->get('idUser') && Auth()->check()) {
             //add in database
@@ -56,16 +57,13 @@ class Controller extends BaseController
                             "dateReservation" => now(),
                             "prixPlace"       => $prixConcert,
                         ]);
-                    }else {
+                    } else {
                         return "false";
                     }
                 }
 
 
-
-
-            }
-            else {
+            } else {
 //                DB::table('reservations')->insert([
 //                    'idUser'          => $id,
 //                    'idConcert'       => $request->get('idConcert'),
@@ -171,11 +169,11 @@ class Controller extends BaseController
 
 //        dd(Auth()->user());
 //get in database all reservation of user
-        $reservations = DB::table('reservations')->join("concerts", "idConcert", "=", "concerts.id")->select("concerts.*", "reservations.*","artistes.*")->join("artistes","concerts.IdArtiste","=","artistes.id")->where('reservations.idUser', Auth()->user()->id)->orderBy('reservations.NumberPlace')->orderBy('reservations.idConcert')->get()->toArray();
+        $reservations = DB::table('reservations')->join("concerts", "idConcert", "=", "concerts.id")->select("concerts.*", "reservations.*", "artistes.*")->join("artistes", "concerts.IdArtiste", "=", "artistes.id")->where('reservations.idUser', Auth()->user()->id)->orderBy('reservations.NumberPlace')->orderBy('reservations.idConcert')->get()->toArray();
 //        dd($reservations);
 //        ->join("concerts.IdArtiste","=","artistes.id")
 //        dd($reservations);
-        return view("profile",compact("reservations"));
+        return view("profile", compact("reservations"));
     }
 }
 

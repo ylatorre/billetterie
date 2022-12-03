@@ -47,7 +47,7 @@
         </div>
     </div>
 
-    <div class="flex flex-col items-center pt-10"  id="payment">
+    <div class="flex flex-col items-center pt-10" id="payment">
         <div class="w-52 flex">
             <form class="flex flex-col items-center" action="">
                 {{--            paiment--}}

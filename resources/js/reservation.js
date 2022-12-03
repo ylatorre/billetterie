@@ -238,9 +238,9 @@ valider.addEventListener('click', function () {
         placeSelectionner: arrayPlace, idConcert: infoConcert, idUser: window.userID
     }).then(response => {
         console.log(response.data)
-        if (response.data === false){
+        if (response.data === false) {
             console.log("Il y a deja une pkace reserver")
-            //TODO: Afficher lerruer a lutilisateur
+            //TODO: Afficher lerreur a lutilisateur
             //Afficher l'erreur a l'utilisateur
             // let messageErreur = document.getElementById('messageErreur');
             // messageErreur.innerHTML = "Il y a deja une place reserver";
@@ -248,10 +248,10 @@ valider.addEventListener('click', function () {
             // arrayPlace = [];
             // arrayPlaceTemp = [];
             // AfficheListeBillets.innerHTML = '';
-        }else   {
+        } else {
             window.location.href = '/recapitulatifPaiment/' + infoConcert + ';' + arrayPlace + ";" + response.data;
         }
-        arrayPlace           = [];
+        arrayPlace = [];
 
 
     }).catch(err => {
