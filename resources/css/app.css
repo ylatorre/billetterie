@@ -2,59 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-.blockPlace{
+.blockPlace {
     border: 1px solid red;
-    display:block;
+    display: block;
     width: 10px;
     height: 10px;
 }
+
 .placeHaut {
     Width: 100%;
     height: 100%;
 }
-.blockPlaceHaut{
+
+.blockPlaceHaut {
     transform: translateX(100px);
 }
-.blockPlaceGauche{
+
+.blockPlaceGauche {
     padding-top: 100px;
 }
-.blockPlaceDroit{
+
+.blockPlaceDroit {
     padding-top: 100px;
     transform: translateX(850px);
 }
 
-.blockPlaceActive{
+.blockPlaceActive {
     background-color: green;
 }
 
-.placeReserve{
+.placeReserve {
     background-color: red;
 }
 
 
-
-
-.bouttonReservation{
+.bouttonReservation {
     background-color: white;
     color: black;
     padding-left: 10px;
     padding-right: 10px;
-    border:1px solid red;
+    border: 1px solid red;
     border-radius: 5px;
     margin-top: 10px;
     margin-bottom: 10px;
     transition: 0.5s;
 }
-.bouttonReservation:hover{
+
+.bouttonReservation:hover {
     background-color: #be0000;
     color: white;
     border: 1px solid #be0000;
 }
-.rip{
-    border-style : dotted;
+
+.rip {
+    border-style: dotted;
 }
 
-.listRow{
+.listRow {
     padding-right: 10px;
 }
 
