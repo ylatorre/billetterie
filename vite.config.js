@@ -12,6 +12,7 @@ export default defineConfig({
                 'resources/js/test.js',
                 'resources/js/reservation.js',
                 'resources/js/recap.js',
+                'resources/js/genererpdf.js',
 
             ],
             refresh: true,

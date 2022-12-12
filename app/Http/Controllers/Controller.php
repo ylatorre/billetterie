@@ -38,6 +38,7 @@ class Controller extends BaseController
 
     public function verifePlace(Request $request)
     {
+
 //        TODO: Corriger la condition ajouter unique a la fin de la verif actuelle ajoute a chaque fois que la verif est valide
         $id = Auth()->user()->id;
         if ($id == $request->get('idUser') && Auth()->check()) {
@@ -47,19 +48,21 @@ class Controller extends BaseController
                 foreach ($request->get('placeSelectionner') as $place) {
                     //verify that the place is already exists in database when NumberPlace and NumberPlace return false
                     $placeExist = DB::table('reservations')->where('NumberPlace', $place)->where('idConcert', $request->get('idConcert'))->exists();
-                    if (!$placeExist) {
-                        DB::table('reservations')->insert([
-                            'idUser'          => $id,
-                            'NumberPlace'     => $place,
-                            'idConcert'       => $request->get('idConcert'),
-                            'created_at'      => now(),
-                            'updated_at'      => now(),
-                            "dateReservation" => now(),
-                            "prixPlace"       => $prixConcert,
-                        ]);
-                    } else {
+                    if ($placeExist) {
                         return "false";
                     }
+                }
+                foreach ($request->get('placeSelectionner') as $place) {
+
+                    DB::table('reservations')->insert([
+                        'idUser'          => $id,
+                        'NumberPlace'     => $place,
+                        'idConcert'       => $request->get('idConcert'),
+                        'created_at'      => now(),
+                        'updated_at'      => now(),
+                        "dateReservation" => now(),
+                        "prixPlace"       => $prixConcert,
+                    ]);
                 }
 
 

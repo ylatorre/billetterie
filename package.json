@@ -19,6 +19,7 @@
         "vite": "^3.0.0"
     },
     "dependencies": {
-        "flowbite": "^1.5.3"
+        "flowbite": "^1.5.3",
+        "pdfkit": "^0.13.0"
     }
 }

@@ -12,6 +12,7 @@
                     @foreach($NumeroPlace as $Numero)
                         <tr>
                             <td></td>
+
                         </tr>
                         <div class="blockBillet">
                             <widget class="widget" type="ticket" class="--flex-column">
@@ -26,10 +27,14 @@
                                         </div>
                                         <div class="price flex flex-row">
                                             <div class="label pr-2">Prix:</div>
-                                            <div class="cost -bold"> {{$concert->Price}} euros</div>
+                                            <div class="cost -bold" data-idconcert="{{$concert->id}}"> {{$concert->Price}} euros</div>
+                                        </div>
+                                        <div class="price flex flex-row">
+{{--                                            <div class="label pr-2">Prix:</div>--}}
+                                            <div class="cost -bold" data-idconcert="{{$concert->id}}> {{$Numero}} euros</div>
                                         </div>
                                         <div>
-                                            <div>Numero de place: {{$Numero}}</div>
+                                            <div class="numeroPlace">Numero de place: {{$Numero}}</div>
                                         </div>
                                     </div>
                                 </div>

@@ -16,14 +16,13 @@ try {
 //     console.log(response.data);
 // }
 // document.getElementById('barcode'+arrayPlace[i])
-    console.log(arrayPlace);
+//     console.log(arrayPlace);
     for (let i = 0; i < arrayPlace.length; i++) {
-
+        console.log(arrayPlace[i], "  ", IdConcert, "  ", arrayPlace[i], "  ", PrixPlace)
         JsBarcode("#barcode" + arrayPlace[i], IdConcert + arrayPlace[i] + PrixPlace, {
             width: 4,
             height: 60,
         });
-
     }
 
     payBtn.addEventListener('click', function () {

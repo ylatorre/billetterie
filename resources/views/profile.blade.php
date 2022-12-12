@@ -7,13 +7,13 @@
     <h2>{{ Auth::user()->name }}</h2>
     <h2>{{ Auth::user()->email }}</h2>
     {{--foreach of $reservations--}}
-
+    @php
+        $i = 0;
+    @endphp
     @foreach($reservations as $reservation)
+
         <div class="flex flex-row justify-between">
 {{--            <h2>{{  }}</h2>--}}
-            @php
-//                dd($reservation);
-//            @endphp
 {{--            <h2>{{ $reservation->id }} id</h2>--}}
 {{--            <h2>{{ $reservation->prixPlace }} prix place</h2>--}}
 {{--            <h2>{{ $reservation->dateReservation }} date reservation</h2>--}}
@@ -24,13 +24,10 @@
         {{--  TODO: continuer la page modifer les commentaire pour faire des billetes foncionnelle  --}}
 {{--            @php--}}
 {{--                dd($reservation);--}}
-{{--                if ($i < 3){--}}
-{{--                            var_dump($Numero);--}}
-{{--                            $i++;--}}
-{{--                }--}}
+
 
 {{--            @endphp--}}
-                        <tr>
+{{--                        <tr>--}}
                             <td></td>
                         </tr>
                         <div class="blockBillet">
@@ -46,20 +43,23 @@
                                         </div>
                                         <div class="price flex flex-row">
                                             <div class="label pr-2">Prix:</div>
-                                            <div class="cost -bold"> {{$reservation->Price}} euros</div>
+                                            <div class="cost -bold" data-idconcert="{{$reservation->id}}"> {{$reservation->Price}} euros</div>
                                         </div>
                                         <div>
-                                            <div>Numero de place: {{$reservation->NumberPlace}}</div>
+                                            <div class="numeroPlace">Numero de place: {{$reservation->NumberPlace}}</div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="rip"></div>
-                                <svg id="barcode{{$reservation->Price}}"></svg>
+                                <svg id="barcode{{$reservation->id}}"></svg>
                                 <div class="bottom --flex-row-j!sb ">
-                                    <a class="buy" href="#">Download</a>
+                                    <a class="buy pdf{{$i}}" href="#">Download</a>
                                 </div>
                             </widget>
                         </div>
+        @php
+        $i++;
+        @endphp
     @endforeach
 
 
