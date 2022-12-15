@@ -13,12 +13,12 @@ try {
 
     // Définir une fonction pour récupérer l'URL actuelle
     function getCurrentURL() {
-        return window.location.href
+        return window.location.href;
     }
 
     // Générer les codes à barres pour chaque place sélectionnée
     for (let i = 0; i < arrayPlace.length; i++) {
-        console.log(arrayPlace[i], "  ", IdConcert, "  ", arrayPlace[i], "  ", PrixPlace)
+        console.log(arrayPlace[i], "  ", IdConcert, "  ", arrayPlace[i], "  ", PrixPlace);
         JsBarcode("#barcode" + arrayPlace[i], IdConcert + arrayPlace[i] + PrixPlace, {
             width: 4,
             height: 60,
@@ -32,7 +32,7 @@ try {
         // cards.classList.remove('hidden');
         cards.style.display   = 'block';
         payment.style.display = 'none';
-    })
+    });
 } catch (e) {
     // Afficher toutes les erreurs dans la console
     console.log(e);
