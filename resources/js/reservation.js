@@ -3,18 +3,18 @@ import axios from "axios";
 try {
 
 
-    const GalerieSup          = document.getElementById('GalSup'),
-          GalerieCenter       = document.getElementById('GalCen'),
-          GalerieInferieur    = document.getElementById('GalInf'),
-          Cour                = document.getElementById('Cour'),
-          ReservationBouton   = document.getElementById('ReservationBouton'),
-          GalerieSupAfficher  = document.getElementById('GalerieSupAfficher'),
-          imgSalle            = document.getElementById('imgSalle'),
-          valider             = document.getElementById('valider'),
-          AfficheListeBillets = document.getElementById('AfficheListeBillets'),
-          infoConcert         = getCurrentURL().split('/').pop(),
-          arrayPlaceTemp      = [],
-          arrayPlace          = [];
+    const GalerieSup        = document.getElementById('GalSup'),
+          GalerieCenter     = document.getElementById('GalCen'),
+          GalerieInferieur  = document.getElementById('GalInf'),
+          Cour              = document.getElementById('Cour'),
+          ReservationBouton = document.getElementById('ReservationBouton');
+    let GalerieSupAfficher  = document.getElementById('GalerieSupAfficher'),
+        imgSalle            = document.getElementById('imgSalle'),
+        valider             = document.getElementById('valider'),
+        AfficheListeBillets = document.getElementById('AfficheListeBillets'),
+        infoConcert         = getCurrentURL().split('/').pop(),
+        arrayPlaceTemp      = [],
+        arrayPlace          = [];
 
 
     GalerieSup.addEventListener('click', function () {
