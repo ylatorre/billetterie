@@ -105,14 +105,14 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     @foreach($concerts as $concert)
-                        <div>
+                        <div class="blockComplete">
                             <div class="flex flex-row justify-start mb-2">
                                 <a href="/reservation/{{$concert->id}}">
-                                    <picture class=""><img class="pr-3 w-40"
+                                    <picture class=""><img class="pr-3 w-40 h-40"
                                                            src="{{$concert->Image}}"
                                                            alt="{{$concert->Description}}"></picture>
                                 </a>
-                                <div>
+                                <div class="blockligne">
                                     <span class="pl-2 pr-2 text-xs text-bold"
                                           style="background-color: #be1836;color:white;">Nouveau</span>
                                     <p class="font-bold	text-xl">

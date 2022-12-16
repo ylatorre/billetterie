@@ -10,8 +10,9 @@
 }
 
 .placeHaut {
-    Width: 100%;
-    height: 100%;
+    width: 100%;
+    /*height: 100%;*/
+    height: 900px;
 }
 
 .blockPlaceHaut {
@@ -63,7 +64,7 @@
 }
 
 #ReservationBouton {
-    height: 850px;
+    /*height: 850px;*/
 }
 
 /*.imgartiste {*/
@@ -71,3 +72,18 @@
 /*    height: 240px !important;*/
 /*    padding-bottom:10px;*/
 /*}*/
+.blockligne {
+    max-width:300px;
+    width:300px;
+}
+
+.supbouton {
+    padding-left: 10px;
+    display:flex;
+    height:20px;
+}
+
+.imgsup{
+    height:20px;
+}
+

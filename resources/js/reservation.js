@@ -73,7 +73,7 @@ try {
                                     if (document.getElementById("Place" + arrayPlaceTemp[i]) !== null) {
                                         document.getElementById("Place" + arrayPlaceTemp[i]).remove()
                                     } else {
-                                        AfficheListeBillets.insertAdjacentHTML("beforeend", "<div><div class='flex flex-row listRow' id=" + "Place" + arrayPlaceTemp[i] + "> Place " + arrayPlaceTemp[i] + " selectionner<div>" + "<a id=" + "Supprimer" + arrayPlaceTemp[i] + "> supprimer</a>" + "</div>");
+                                        AfficheListeBillets.insertAdjacentHTML("beforeend", "<div class='contenueSup'><div class='flex flex-row listRow' id=" + "Place" + arrayPlaceTemp[i] + "> Place " + arrayPlaceTemp[i] + " selectionner<div>" + "<a class='supbouton' id=" + "Supprimer" + arrayPlaceTemp[i] + "> <img class='imgsup' src=\"https://img.icons8.com/emoji/48/null/cross-mark-emoji.png\"/></a>" + "</div>");
                                     }
                                 }
 
@@ -113,7 +113,7 @@ try {
                                     if (document.getElementById("Place" + arrayPlaceTemp[i]) !== null) {
                                         document.getElementById("Place" + arrayPlaceTemp[i]).remove()
                                     } else {
-                                        AfficheListeBillets.insertAdjacentHTML("beforeend", "<div><div class='flex flex-row listRow' id=" + "Place" + arrayPlaceTemp[i] + "> Place " + arrayPlaceTemp[i] + " selectionner<div>" + "<a id=" + "Supprimer" + arrayPlaceTemp[i] + "> supprimer</a>" + "</div>");
+                                        AfficheListeBillets.insertAdjacentHTML("beforeend", "<div class='contenueSup'><div class='flex flex-row listRow' id=" + "Place" + arrayPlaceTemp[i] + "> Place " + arrayPlaceTemp[i] + " selectionner<div>" + "<a class='supbouton' id=" + "Supprimer" + arrayPlaceTemp[i] + "> <img class='imgsup' src=\"https://img.icons8.com/emoji/48/null/cross-mark-emoji.png\"/></a>" + "</div>");
                                     }
                                 }
                             }
@@ -150,7 +150,7 @@ try {
                                     if (document.getElementById("Place" + arrayPlaceTemp[i]) !== null) {
                                         document.getElementById("Place" + arrayPlaceTemp[i]).remove()
                                     } else {
-                                        AfficheListeBillets.insertAdjacentHTML("beforeend", "<div><div class='flex flex-row listRow' id=" + "Place" + arrayPlaceTemp[i] + "> Place " + arrayPlaceTemp[i] + " selectionner<div>" + "<a id=" + "Supprimer" + arrayPlaceTemp[i] + "> supprimer</a>" + "</div>");
+                                        AfficheListeBillets.insertAdjacentHTML("beforeend", "<div class='contenueSup'><div class='flex flex-row listRow' id=" + "Place" + arrayPlaceTemp[i] + "> Place " + arrayPlaceTemp[i] + " selectionner<div>" + "<a class='supbouton' id=" + "Supprimer" + arrayPlaceTemp[i] + "><img class='imgsup' src=\"https://img.icons8.com/emoji/48/null/cross-mark-emoji.png\"/></a>" + "</div>");
                                     }
                                 }
                             }
@@ -187,7 +187,7 @@ try {
                                     if (document.getElementById("Place" + arrayPlaceTemp[i]) !== null) {
                                         document.getElementById("Place" + arrayPlaceTemp[i]).remove()
                                     } else {
-                                        AfficheListeBillets.insertAdjacentHTML("beforeend", "<div><div class='flex flex-row listRow' id=" + "Place" + arrayPlaceTemp[i] + "> Place " + arrayPlaceTemp[i] + " selectionner<div>" + "<a id=" + "Supprimer" + arrayPlaceTemp[i] + "> supprimer</a>" + "</div>");
+                                        AfficheListeBillets.insertAdjacentHTML("beforeend", "<div class='contenueSup'><div class='flex flex-row listRow' id=" + "Place" + arrayPlaceTemp[i] + "> Place " + arrayPlaceTemp[i] + " selectionner<div>" + "<a class='supbouton' id=" + "Supprimer" + arrayPlaceTemp[i] + ">  <img class='imgsup' src=\"https://img.icons8.com/emoji/48/null/cross-mark-emoji.png\"/></a>" + "</div>");
                                     }
                                 }
                             }
