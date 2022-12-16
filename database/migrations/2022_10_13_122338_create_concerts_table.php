@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('concerts', function (Blueprint $table) {
             $table->id();
-            $table->text('Name');
-            $table->text('duree');
-            $table->text('Price');
-            $table->text('Description');
-            $table->text('Image');
-            $table->text('type');
+            $table->mediumText('Name');
+            $table->mediumText('duree');
+            $table->mediumText('Price');
+            $table->mediumText('Description');
+            $table->mediumText('Image');
+            $table->mediumText('type');
             $table->integer('IdArtiste');
             $table->integer('NumberPlacesReserved');
             $table->integer('NumberPlacesAvailable');
