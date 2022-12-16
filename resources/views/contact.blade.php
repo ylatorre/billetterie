@@ -10,7 +10,7 @@
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-blue border-b border-gray-200 flex justify-center text-3xl">
-                    CONTACTER NOUS
+                    CONTACTEZ NOUS
                 </div>
                 <!--Formulaire -->
                 <section class="bg-white BG-WHITE:bg-gray-900 max-w-3xl ">

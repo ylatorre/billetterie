@@ -15,19 +15,19 @@
                 <div class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-0 z-20"
                      data-carousel-item="">
                     <span class="absolute text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
-                    <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
+                    <img src="https://www.coulisses-tv.fr/media/k2/items/cache/90e68ab6087c1a1b93ecca8fe2f7c7dc_XL.jpg"
                          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
                 <!-- Item 2 -->
                 <div class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-full z-10"
                      data-carousel-item="">
-                    <img src="https://www.referenseo.com/wp-content/uploads/2019/03/image-attractive.jpg"
+                    <img src="https://www.popnmusic.fr/wp-content/uploads/2022/06/4-artistes-que-vous-devez-voir-au-Neversea-Festival-2022.jpg"
                          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
                 <!-- Item 3 -->
                 <div class="duration-700 ease-in-out absolute inset-0 transition-all transform -translate-x-full z-10"
                      data-carousel-item="">
-                    <img src="https://img-19.commentcamarche.net/cI8qqj-finfDcmx6jMK6Vr-krEw=/1500x/smart/b829396acc244fd484c5ddcdcb2b08f3/ccmcms-commentcamarche/20494859.jpg"
+                    <img src="https://www.olyrix.com/files/picture/photos/SocialImage/33667/concert-de-paris-le-14-juillet-2020-artistes-et-programme-complet-batiashvili-bernheim-buniatishvili-gabetta-kidjo-said-tezier-vary-yoncheva-ballet-preljocaj-eun-sun-kim-batic-jeannin-orchestre-national-france-choeur-maitrise-radio.jpg"
                          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
             </div>

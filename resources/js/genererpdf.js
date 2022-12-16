@@ -18,8 +18,7 @@ try {
 
         // Ajoute du texte au PDF à la position (80, 20) avec la valeur du prix du billet
         pdf.text(80, 20, "Prix : " + prixPlace.innerText);
-
-        // Ajoute du texte au PDF à la position (80, 30) avec la date du concert
+        // Ajote du texte au PDF à la position (80, 30) avec la date du concert
         pdf.text(80, 30, "Date : " + datePlace.innerText);
 
         // Ajoute du texte au PDF à la position (80, 40) avec le lieu du concert

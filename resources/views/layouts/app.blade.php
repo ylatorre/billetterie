@@ -27,6 +27,7 @@
             <!-- Page Content -->
             <main>
                 {{ $slot }}
+                <div class="pt-10"></div>
             </main>
 
         </div>
