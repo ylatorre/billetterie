@@ -20,25 +20,25 @@
                 </div>
             </div>
             <div class="flex">
-                <div class="flex flex-col">
+                <div class="flex flex-col mr-2">
                     <button id="GalSup"
-                            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded">
+                            class=" bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded">
                         Galerie supérieure
                     </button>
                     <button id="GalCen"
-                            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded">
+                            class=" bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded">
                         Galerie centrale
                     </button>
                     <button id="GalInf"
-                            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded">
+                            class=" bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded">
                         Galerie inférieure
                     </button>
                     <button id="Cour"
-                            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded">
+                            class=" bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded">
                         Cour
                     </button>
 
-                    <button class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                    <button class="mt-6 text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5  text-center "
                             type="button" data-modal-toggle="popup-modal">
                         Valider
                     </button>

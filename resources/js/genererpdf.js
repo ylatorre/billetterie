@@ -3,7 +3,7 @@ console.log("genererpdf");
 
 try {
     // Déclare la fonction "genererpdf" qui génère un PDF à partir d'un élément HTML
-    function genererpdf(prixPlace, Locate, datePlace, idconcert) {
+    function genererpdf(prixPlace, Locate, datePlace, idconcert,number) {
         // Créer un nouvel objet jsPDF
         var pdf = new jsPDF();
 
@@ -14,16 +14,15 @@ try {
         console.log(svg)
 
         // Ajoute du texte au PDF à la position (80, 10)
-        pdf.text(80, 10, "Votre billets est le :")
+        pdf.text(60, 10, "Votre billets est le :"+ idconcert  + datePlace.innerText + number)
 
         // Ajoute du texte au PDF à la position (80, 20) avec la valeur du prix du billet
-        pdf.text(80, 20, "Prix : " + prixPlace.innerText);
-
-        // Ajoute du texte au PDF à la position (80, 30) avec la date du concert
-        pdf.text(80, 30, "Date : " + datePlace.innerText);
+        pdf.text(60, 20, "Prix : " + prixPlace.innerText);
+        // Ajote du texte au PDF à la position (80, 30) avec la date du concert
+        pdf.text(60, 30, "Date : " + datePlace.innerText);
 
         // Ajoute du texte au PDF à la position (80, 40) avec le lieu du concert
-        pdf.text(80, 40, "Lieu : " + Locate.innerText);
+        pdf.text(60, 40, "Lieu : " + Locate.innerText);
 
         // Enregistre le document PDF
         pdf.save('billete.pdf');
@@ -40,15 +39,15 @@ try {
             let billetsClickerLocate = tousLesBilletes[i].parentNode.parentNode.getElementsByClassName("location")
             let billetsClickerDate   = tousLesBilletes[i].parentNode.parentNode.getElementsByClassName("date")
             let idconcert            = billetsClickerPrix[0].dataset.idconcert
-
-            genererpdf(billetsClickerPrix[0], billetsClickerLocate[0], billetsClickerDate[0], idconcert);
-
-
             let billetsClickerNumeroPlace = tousLesBilletes[i].parentNode.parentNode.getElementsByClassName("numeroPlace")
             let billetsClickerNom         = tousLesBilletes[i].parentNode.parentNode.getElementsByClassName("bandname")
             const string                  = billetsClickerNumeroPlace[0].innerText
             const regex                   = /\d+/; // La regex recherche les nombres entiers dans la chaîne
             const number                  = string.match(regex)[0]; // Récupère le premier nombre entier trouvé
+            genererpdf(billetsClickerPrix[0], billetsClickerLocate[0], billetsClickerDate[0], idconcert,number);
+
+
+
             console.log(number); // Affiche "2356"
 
             console.log(billetsClickerNom)
@@ -69,7 +68,7 @@ try {
         const number                  = string.match(regex)[0]; // Récupère le premier nombre entier trouvé
         // console.log("Resulat ",number+" " + idconcert + number + billetsClickerNom[0].innerText);
         JsBarcode("#barcode" + idconcert, idconcert + number + billetsClickerNom[0].innerText, {
-            width: 3, height: 60,
+            width: 2, height: 60,
         });
 
     }

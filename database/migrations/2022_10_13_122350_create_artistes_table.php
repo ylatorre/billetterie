@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('artistes', function (Blueprint $table) {
             $table->id();
-            $table->string('NameArtiste');
-            $table->string('DescriptionArtiste');
-            $table->string('ImageArtiste');
-            $table->string('IdConcerts');
+            $table->mediumText('NameArtiste');
+            $table->mediumText('DescriptionArtiste');
+            $table->mediumText('ImageArtiste');
+            $table->mediumText('IdConcerts');
         });
     }
 

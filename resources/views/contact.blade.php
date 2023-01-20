@@ -10,7 +10,7 @@
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-blue border-b border-gray-200 flex justify-center text-3xl">
-                    CONTACTER NOUS
+                    CONTACTEZ NOUS
                 </div>
                 <!--Formulaire -->
                 <section class="bg-white BG-WHITE:bg-gray-900 max-w-3xl ">
@@ -34,7 +34,7 @@
                                 <button type="submit" class=" flex justify-end text-black bg-gray-300 rounded-md p-3  duration-500 ease-out hover:ease-in  hover:bg-gray-700 hover:text-gray-300 ">Envoyer message</button>
 
                             </div>
-                        </form>
+{{--                        </form>--}}
                     </div>
                     <div class="flex flex-row justify-start ml-4 mb-9 pl-5 space-x-1.5">
                         <img src="{{ asset('instagram.png') }}">

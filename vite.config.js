@@ -13,6 +13,7 @@ export default defineConfig({
                 'resources/js/reservation.js',
                 'resources/js/recap.js',
                 'resources/js/genererpdf.js',
+                "resources/js/contact.js",
 
             ],
             refresh: true,
