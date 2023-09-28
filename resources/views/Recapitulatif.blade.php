@@ -26,15 +26,15 @@
                                             <div class="location -bold">Institut G4, Lyon</div>
                                         </div>
                                         <div class="price flex flex-row">
-                                            <div class="label pr-2">Prix:</div>
+                                            <div class="label pr-2">Price:</div>
                                             <div class="cost -bold" data-idconcert="{{$concert->id}}"> {{$concert->Price}} euros</div>
                                         </div>
                                         <div class="price flex flex-row">
-{{--                                            <div class="label pr-2">Prix:</div>--}}
+{{--                                            <div class="label pr-2">Price:</div>--}}
                                             <div class="cost -bold" data-idconcert="{{$concert->id}}> {{$Numero}} euros</div>
                                         </div>
                                         <div>
-                                            <div class="numeroPlace">Numero de place: {{$Numero}}</div>
+                                            <div class="numeroPlace">Seat number: {{$Numero}}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -56,8 +56,8 @@
         <div class="w-52 flex">
             <form class="flex flex-col items-center" action="">
                 {{--            paiment--}}
-                <h1>Nombre de place : {{count($NumeroPlace)}}</h1>
-                <h1>Prix total: {{count($NumeroPlace) * $concert->Price}} euros</h1>
+                <h1>Number of seat de place : {{count($NumeroPlace)}}</h1>
+                <h1>Price total: {{count($NumeroPlace) * $concert->Price}} dollars</h1>
                 <input type="text" id="cardNumber" placeholder="Card Number">
                 <input type="text" id="cardExpiry" placeholder="MM / YY">
                 <input type="text" id="cardCVC" placeholder="CVC">

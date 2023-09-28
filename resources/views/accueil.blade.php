@@ -114,7 +114,7 @@
                                 </a>
                                 <div class="blockligne">
                                     <span class="pl-2 pr-2 text-xs text-bold"
-                                          style="background-color: #be1836;color:white;">Nouveau</span>
+                                          style="background-color: #be1836;color:white;">New</span>
                                     <p class="font-bold	text-xl">
                                         <a href="/reservation/{{$concert->id}}"> {{$concert->Description}} </a></p>
                                     <div class="" style="color:rgba(9,10,11,0.5)">
@@ -124,8 +124,7 @@
                                     </div>
                                 </div>
                                 <div class="flex items-end">
-                                    <a class="bouttonReservation " href="/reservation/{{$concert->id}}">Réserver votre
-                                        billet</a>
+                                    <a class="bouttonReservation " href="/reservation/{{$concert->id}}">Book your ticket</a>
                                 </div>
                             </div>
                             <hr class="mb-2">

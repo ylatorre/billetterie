@@ -4,7 +4,7 @@
         </h2>
     </x-slot>
     <div class="flex items-center flex-col pt-4 bg-gray-50 pb-4">
-        <h2>Bonjour {{ Auth::user()->name }}</h2>
+        <h2>Hello {{ Auth::user()->name }}</h2>
         <h2>email :{{ Auth::user()->email }}</h2>
 
     </div>

@@ -13,34 +13,34 @@
                     {{--                    <h4>{{$concert}}</h4>--}}
                     <p>{{$concert[0]->Date}}</p>
                     <p>{{$concert[0]->Description}}</p>
-                    <p>Reservation pour le concert {{$concert[0]->Name}} </p>
+                    <p>Reservation for the concert {{$concert[0]->Name}} </p>
                 </div>
                 <div>
-                    <p>Choix de la place</p>
+                    <p>Seat selection</p>
                 </div>
             </div>
             <div class="flex">
                 <div class="flex flex-col mr-2">
                     <button id="GalSup"
                             class=" bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded">
-                        Galerie supérieure
+                        Upper gallery
                     </button>
                     <button id="GalCen"
                             class=" bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded">
-                        Galerie centrale
+                        Central gallery
                     </button>
                     <button id="GalInf"
                             class=" bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded">
-                        Galerie inférieure
+                        Lower gallery
                     </button>
                     <button id="Cour"
                             class=" bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded">
-                        Cour
+                        Yard
                     </button>
 
                     <button class="mt-6 text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5  text-center "
                             type="button" data-modal-toggle="popup-modal">
-                        Valider
+                        Validate
                     </button>
 
 
@@ -55,7 +55,7 @@
         </div>
     </div>
     <div id="AfficheListeBillets">
-{{--        <h1>Billet selectionner : </h1>--}}
+{{--        <h1>Selected ticket: </h1>--}}
     </div>
     <div id="popup-modal" tabindex="-1"
          class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 md:inset-0 h-modal md:h-full">
@@ -78,11 +78,10 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                               d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
-                    <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Etes vous sur de valider la
-                        selection?</h3>
+                    <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure to validate the selection?</h3>
                     <button id="valider" data-modal-toggle="popup-modal" type="button"
                             class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-                        Valider
+                        Validate
                     </button>
 
                     <button data-modal-toggle="popup-modal" type="button"
